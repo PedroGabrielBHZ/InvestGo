@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bcrypt.js/0.0.3/bcrypt.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <a class="navbar-brand" href="login.html">Login</a>
+        <a class="navbar-brand" href="cadastro.html">Cadastro</a>
+        <a class="navbar-brand" href="contato.html">Contato</a>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login">Login:</label>
+                        <input type="text" class="form-control" id="login" name="login">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/login.js"></script>
+</body>
+
+</html>
