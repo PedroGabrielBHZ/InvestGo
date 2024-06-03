@@ -1,0 +1,16 @@
+.half-size {
+    width: 50% !important;
+    height: 50% !important;
+}
+
+.footer {
+    padding: 10px 0;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-left: 20px;
+}

@@ -2,7 +2,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     event.preventDefault();
 
     var login = document.getElementById('login').value;
-    var senha = document.getElementById('senha').value;
+    var password = document.getElementById('password').value;
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -10,12 +10,12 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         return user.login === login;
     });
 
-    if (user && (senha === user.senha)) {
+    if (user && (password === user.password)) {
         localStorage.setItem('activeUser', JSON.stringify(user));
         alert('Login successful');
+        location.href = 'landing.html';
     } else {
         alert('Invalid login or password');
+        location.href = 'login.html';
     }
-
-    location.href = 'index.html';
 });

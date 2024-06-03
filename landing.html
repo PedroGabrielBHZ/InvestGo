@@ -11,19 +11,25 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Home</a>
-        <a class="navbar-brand" href="login.html">Login</a>
-        <a class="navbar-brand" href="cadastro.html">Cadastro</a>
-        <a class="navbar-brand" href="contato.html">Contato</a>
+        <a class="navbar-brand" href="landing.html">Home</a>
+        <a class="navbar-brand" href="meus_investimentos.html">Meus Investimentos</a>
+        <a class="navbar-brand" href="produtos.html">Produtos</a>
+        <a class="navbar-brand" href="forum.html">Forum</a>
+        <a class="navbar-brand" href="aprendizado.html">Aprendizado</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="logout()">Logout</a>
+            </li>
+        </ul>
     </nav>
 
     <div class="container">
         <br>
         <br>
-        <h1>InvestGo</h1>
-        <p>
-            InvestGo é uma plataforma de investimentos que conecta diretamente investidores a ativos que atendam suas
-            necessidades.
+        <h1 id="welcomeMessage">Bem vindo, Usuário.</h1>
+        <p id="investorCheck">
+            Atualmente, você é um pobre. Mas não se preocupe, com a InvestGo, você pode se tornar um investidor de
+            sucesso.
         </p>
     </div>
 
@@ -38,4 +44,7 @@
             <h6>Telefone: (11) 99999-9999</h6>
         </div>
     </footer>
+
+    <script src="scripts/landing.js"></script>
+    <script src="scripts/logout.js"></script>
 </body>

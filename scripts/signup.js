@@ -1,13 +1,17 @@
 document.getElementById('signupForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    var nome = document.getElementById('nome').value;
-    var sobrenome = document.getElementById('sobrenome').value;
+    $('#termsModal').modal('show');
+});
+
+document.getElementById('agreeButton').addEventListener('click', function () {
+    var nome = document.getElementById('name').value;
+    var surname = document.getElementById('surname').value;
     var email = document.getElementById('email').value;
-    var telefone = document.getElementById('telefone').value;
+    var phone = document.getElementById('phone').value;
     var cpf = document.getElementById('cpf').value;
     var login = document.getElementById('login').value;
-    var senha = document.getElementById('senha').value;
+    var password = document.getElementById('password').value;
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -18,15 +22,14 @@ document.getElementById('signupForm').addEventListener('submit', function (event
     if (exists) {
         alert('Login already exists');
     } else {
-
         var user = {
             nome: nome,
-            sobrenome: sobrenome,
+            surname: surname,
             email: email,
-            telefone: telefone,
+            phone: phone,
             cpf: cpf,
             login: login,
-            senha: senha
+            password: password
         };
 
         users.push(user);
