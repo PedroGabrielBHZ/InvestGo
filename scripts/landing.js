@@ -20,3 +20,50 @@ window.onload = function () {
         investorCheck.style.display = 'none';
     }
 };
+
+document.getElementById('addFundsForm').addEventListener('submit', function (event) {
+    // Prevent the form from submitting normally
+    event.preventDefault();
+
+    // Get the activeUser object from local storage
+    var activeUser = JSON.parse(localStorage.getItem('activeUser'));
+
+    // Get the login field from the activeUser object
+    var login = activeUser.login;
+
+    // Get the users array from local storage
+    var users = JSON.parse(localStorage.getItem('users'));
+
+    // Find the current user in the users array
+    var currentUser = users.find(function (user) {
+        return user.login === login;
+    });
+
+    // If the current user was found, add the inputted amount to their funds
+    if (currentUser) {
+        var amount = parseFloat(document.getElementById('amount').value);
+
+        // Check if the "funds" field exists and if not, initialize it to 0
+        if (!currentUser.hasOwnProperty('funds')) {
+            currentUser.funds = 0;
+        }
+
+        currentUser.funds += amount;
+
+        // Save the updated users array back to local storage
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    // Clear the form
+    document.getElementById('addFundsForm').reset();
+
+    // Show the modal
+    $('#successModal').modal('show');
+
+
+});
+
+document.getElementById('okButton').addEventListener('click', function () {
+    // hide the modal
+    $('#successModal').modal('hide');
+});

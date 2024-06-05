@@ -34,17 +34,12 @@
                 <option value="Moderado">Moderado</option>
                 <option value="Baixo">Baixo</option>
             </select>
-            <br>
-            <label for="initialInvestment">Investimento Inicial:</label>
-            <input type="number" id="initialInvestment" name="initialInvestment" min="0">
-            <br>
-            <label for="expirationDate">Data de Vencimento:</label>
-            <input type="date" id="expirationDate" name="expirationDate">
-            <br>
-            <label for="returnRate">Taxa de retorno:</label>
+            <label for="minimumInvestment">Investimento Inicial:</label>
+            <input type="number" id="minimumInvestment" name="minimumInvestment" min="0">
+            <label for="maturity">Vencimento:</label>
+            <input type="date" id="maturity" name="maturity">
+            <label for="returnRate">Rentabilidade:</label>
             <input type="number" id="returnRate" name="returnRate" min="0">
-            <br>
-            <br>
             <input type="submit" value="Filtrar">
             <button type="button" id="clearFilters">Limpar filtros</button>
         </form>

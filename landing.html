@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InvestGo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -27,11 +29,48 @@
         <br>
         <br>
         <h1 id="welcomeMessage">Bem vindo, Usuário.</h1>
+        <img src="assets/sam.webp" alt="Vitão Trembol" style="width: 25%; height: auto;">
         <p id="investorCheck">
             Atualmente, você é um pobre. Mas não se preocupe, com a InvestGo, você pode se tornar um investidor de
             sucesso.
         </p>
     </div>
+
+    <!-- Adicionar fundos -->
+    <div class="container">
+        <h1>Adicionar Fundos</h1>
+        <p>Faça um PIX para a chave <strong>10106175670</strong> e informe abaixo a quantidade transferida. <br>
+            Confie em nós, seu dinheiro está <strike>pagando minha trembolona</strike> a salvo.</p>
+        <form id="addFundsForm">
+            <label for="amount">Quantidade:</label>
+            <input type="number" id="amount" name="amount" min="0">
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
+
+
+    <!-- Sucesso -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Sucesso</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strike>Trembolona 30mg adquirida com sucesso.</strike></p>
+                    <p>Seu saldo foi atualizado com sucesso.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="okButton">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer class="footer bg-light fixed-bottom">
         <div class="container text-center">
