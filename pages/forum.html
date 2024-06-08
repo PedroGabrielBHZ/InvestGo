@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InvestGo</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">InvestGo</a>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="landing.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="meus_investimentos.html"
+              >Meus Investimentos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="produtos.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="forum.html">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aprendizado.html">Aprendizado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="my-4">Posts</h1>
+      <div id="postList">
+        <!-- Posts will be dynamically inserted here -->
+      </div>
+    </div>
+
+    <script src="../scripts/forum.js"></script>
+
+    <footer class="footer bg-light fixed-bottom">
+      <div class="container text-center">
+        <span class="text-muted"
+          >Não fornecemos aconselhamento financeiro, apenas correspondência
+          automática entre investidores e produtos de investimento.</span
+        >
+      </div>
+      <div class="container text-center">
+        <h5>InvestGo</h5>
+        <h6>Endereço: Av. Paulista, 1000, São Paulo, SP</h6>
+        <h6>Telefone: (11) 99999-9999</h6>
+      </div>
+    </footer>
+  </body>
+</html>

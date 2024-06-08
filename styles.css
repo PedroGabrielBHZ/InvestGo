@@ -1,16 +1,43 @@
 .half-size {
-    width: 50% !important;
-    height: 50% !important;
+  width: 50% !important;
+  height: 50% !important;
 }
 
 .footer {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .question {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .options {
-    margin-left: 20px;
+  margin-left: 20px;
+}
+
+body {
+  padding-bottom: 200px; /* Height of the footer */
+}
+
+.darker-gray {
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.darker-gray:focus {
+  outline: none;
+}
+
+.darker-gray:hover {
+  background-color: rgb(255, 210, 49);
+}
+
+#custom-nav {
+  background-color: rgb(255, 210, 49);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
