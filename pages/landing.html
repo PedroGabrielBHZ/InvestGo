@@ -30,22 +30,44 @@
           <li class="nav-item">
             <a class="nav-link" href="aprendizado.html">Aprendizado</a>
           </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="logout()">Logout</a>
+            <a class="nav-link" href="#" onclick="logout()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
+                />
+              </svg>
+              Logout
+            </a>
           </li>
         </ul>
       </div>
     </nav>
 
+    <!-- That yellow sexy bar. -->
     <nav class="navbar border-bottom border-body" id="custom-nav">
-      <h2 id="welcomeMessage">Bem-vindo, Usuário.</h2>
+      <h1 id="welcomeMessage">Bem-vindo, Usuário.</h1>
     </nav>
     <br />
     <br />
 
     <!-- Saldo disponível -->
     <div class="container">
-      <h2>Saldo Disponível</h2>
+      <h3>Saldo Disponível</h3>
       <p>Confira o saldo disponível na sua conta.</p>
       <h3 id="balance">R$ 0,00</h3>
     </div>
@@ -54,7 +76,7 @@
 
     <!-- Adicionar fundos -->
     <div class="container">
-      <h2>Adicionar Fundos</h2>
+      <h3>Adicionar Fundos</h3>
       <p>
         Para adicionar fundos, realize uma transferência via PIX para a chave
         <strong>10106175670</strong> e informe abaixo a quantidade transferida.
@@ -70,7 +92,7 @@
 
     <!-- Perfil de investidor -->
     <div class="container">
-      <h2>Perfil de Investidor</h2>
+      <h3>Perfil de Investidor</h3>
       <br />
       <h4 id="investorProfile">Indefinido</h4>
       <p>

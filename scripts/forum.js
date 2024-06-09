@@ -1,20 +1,5 @@
 // Sample data structure for posts
-let posts = [
-  {
-    title: "Quero ficar rico, mas sou um pobre fodido.",
-    content: "Alguém tem alguma ideia do que posso fazer?",
-    comments: [
-      "Se fodeu. Quem sabe na próxima vida?",
-      "Você pode se inscrever no meu curso de trading de bitcoins. Clique aqui.",
-    ],
-  },
-  {
-    title: "Sou rico, mas sou um bosta.",
-    content: "Alguém sabe como sair dessa?",
-    comments: ["Comment 1", "Comment 2"],
-  },
-  // More posts...
-];
+let posts = [];
 
 // Check if there are posts in local storage
 if (localStorage.getItem("posts")) {
@@ -32,26 +17,115 @@ function createPostElement(post) {
   postElement.innerHTML = `
                 <div class="card-body">
                     <h5 class="card-title">${post.title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${post.author} ${post.date}</h6>
                     <p class="card-text">${post.content}</p>
-                    <button class="btn btn-primary darker-gray" onclick="viewComments('${post.title}')">View Comments</button>
+                    <button class="btn btn-primary darker-gray" onclick="viewComments('${post.title}')">Ver comentários</button>
                 </div>
             `;
 
   return postElement;
 }
 
-// Function to view comments
 function viewComments(postTitle) {
   // Find the post by title
   const post = posts.find((p) => p.title === postTitle);
 
   // If the post exists, display its comments
   if (post) {
-    alert(post.comments.join("\n"));
+    const commentsBody = document.getElementById("commentsBody");
+    commentsBody.innerHTML = ""; // Clear any existing comments
+
+    post.comments.forEach((comment) => {
+      const h = document.createElement("h6");
+      h.innerText = comment.author + " - " + comment.date + ":";
+      commentsBody.appendChild(h);
+      const p = document.createElement("p");
+      p.innerText = comment.content;
+      commentsBody.appendChild(p);
+    });
+
+    // Show the modal
+    var myModal = new bootstrap.Modal(
+      document.getElementById("commentsModal"),
+      {}
+    );
+
+    currentPostTitle = postTitle;
+
+    myModal.show();
   }
 }
 
-// Get the post list element
+function addComment() {
+  // Get the new comment from the text area
+  const newComment = document.getElementById("newComment").value;
+
+  // Find the post by title
+  const post = posts.find((p) => p.title === currentPostTitle);
+
+  // Get the active user from local storage
+  const activeUser = JSON.parse(localStorage.getItem("activeUser"));
+
+  // Set the activeUser user field as the author of the comment
+  const author = activeUser.nome;
+
+  // If the post exists, add the new comment
+  if (post) {
+    post.comments.push({
+      author: author,
+      date: new Date().toLocaleString(),
+      content: newComment,
+    });
+
+    // Clear the text area
+    document.getElementById("newComment").value = "";
+
+    // Save the updated posts to local storage
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }
+
+  // Close the modal
+  var myModal = bootstrap.Modal.getInstance(
+    document.getElementById("commentsModal")
+  );
+  myModal.hide();
+}
+
+function addPost() {
+  // Get the new post title from the text area
+  const newPostTitle = document.getElementById("newPostTitle").value;
+
+  // Get the new post content from the text area
+  const newPostContent = document.getElementById("newPost").value;
+
+  // Get the active user from local storage
+  const activeUser = JSON.parse(localStorage.getItem("activeUser"));
+
+  // Set the activeUser user field as the author of the comment
+  const author = activeUser.nome;
+
+  // Add the new post to the posts array
+  posts.push({
+    title: newPostTitle,
+    author: author,
+    date: new Date().toLocaleString(),
+    content: newPostContent,
+    comments: [],
+  });
+
+  // Save the updated posts to local storage
+  localStorage.setItem("posts", JSON.stringify(posts));
+
+  // Close the modal
+  var myModal = bootstrap.Modal.getInstance(
+    document.getElementById("newPostModal")
+  );
+  myModal.hide();
+
+  // Redirect to the forum page
+  window.location.href = "forum.html";
+}
+
 const postList = document.getElementById("postList");
 
 // Create and append post elements
