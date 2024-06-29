@@ -12,10 +12,22 @@ window.onload = function () {
     // Get a reference to the balance element
     let balanceElement = document.getElementById("balance");
 
-    // Update the balance element with the activeUser's funds
-    balanceElement.textContent =
-      "R$ " + activeUser.funds.toFixed(2).replace(".", ",");
+    // Assuming activeUser.funds is a number
+    const formattedTotal = `R$ ${activeUser.funds.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).slice(3)}`;
+    balanceElement.textContent = formattedTotal;
   }
+
+  // Get the activeUser's investments from local storage
+  let totalAmount = 0;
+  activeUser.investments.forEach(investment => {
+      totalAmount += investment.amount;
+  });
+
+  // Format totalAmount as currency (e.g., R$ 1.500,00)
+  const formattedTotal = `R$ ${totalAmount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).slice(3)}`;
+
+  // Update the totalInvested element with the formatted total amount
+  document.getElementById('totalInvested').innerHTML = formattedTotal;
 
   // Fill in investor profile
   if (activeUser && activeUser.investorProfile) {
